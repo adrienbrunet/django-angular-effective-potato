@@ -1,0 +1,3 @@
+git+https://github.com/adrienbrunet/django-angular
+Django==1.9.1
+djangorestframework==3.3.2

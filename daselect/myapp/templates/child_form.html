@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div ng-app='main'>
+        <div ng-controller='mainController'>
+            <form submit-function="submit({{ form.scope_prefix }})" name="{{ form.form_name }}">
+                {{ form.as_div }}
+                <button class="btn btn-primary" ng-disabled="{{ form.form_name }}.$invalid">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+    <br><br><br>
+    <a href="{% url 'home' %}" type="button" class="btn btn-info">Back to the Child List</a>
+{% endblock body %}

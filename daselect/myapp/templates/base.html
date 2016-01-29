@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load staticfiles %}
+	<title>Test</title>
+    <link rel="stylesheet" type='text/css' href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" type='text/css' href="{% static 'djangular.css' %}">
+	<script src='{% static "angular/angular.js" %}' type="text/javascript" charset="utf-8"></script>
+	<script src='{% static "angular-resource/angular-resource.js" %}' type="text/javascript" charset="utf-8"></script>
+	<script src='{% static "djangular.js" %}' type="text/javascript" charset="utf-8"></script>
+	<script src='{% static "angular-app.js" %}' type="text/javascript" charset="utf-8"></script>
+	<script src='{% static "resources.js" %}' type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				{% block body %}{% endblock body %}
+			</div>
+		</div>
+	</div>
+</body>
+</html>
