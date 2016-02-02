@@ -8,6 +8,7 @@ from . import views
 router = DefaultRouter()
 
 router.register(r'children', views.ChildViewSet, base_name='child')
+router.register(r'parent', views.ParentViewSet, base_name='parent')
 
 
 urlpatterns = [

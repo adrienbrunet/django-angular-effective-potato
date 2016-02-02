@@ -7,4 +7,8 @@ angular.module('main')
 
     .factory('Child', ['$resource', function ($resource) {
         return $resource('/api/children/:pk/', {'pk': '@pk'}, {'update': {'method': 'PUT'}});
+    }])
+
+    .factory('Parent', ['$resource', function ($resource) {
+    	return $resource('/api/parent/:pk/',  {'pk': '@pk'}, {'update': {'method': 'PUT'}});
     }]);

@@ -3,11 +3,16 @@ angular.module('main', [
 ]);
 
 
-mainController = function ($scope, Child) {
-	Child.get({pk:2}).$promise.then(function (ch) {
-		$scope.dj_child = ch;
+mainController = function ($scope, Child, Parent) {
+	Parent.query().$promise.then(function (parents) {
+		$scope.parents = parents;
+		Child.get({pk:2}).$promise.then(function (ch) {
+			$scope.dj_child = ch;
+			console.log($scope.dj_child);
+		});
+		console.log($scope.parents);
 	});
 };
-mainController.$inject = ['$scope', 'Child'];
+mainController.$inject = ['$scope', 'Child', 'Parent'];
 
 angular.module('main').controller('mainController', mainController);

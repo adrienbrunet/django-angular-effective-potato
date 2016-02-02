@@ -255,7 +255,6 @@
         }
       }
       function restoreSelectOptions(modelCtrl, field) {
-        modelCtrl.$setViewValue(String(modelCtrl.$viewValue));
         $log.log(modelCtrl);
         $log.log(field);
         var multivalues = [];
@@ -266,10 +265,7 @@
             if (field.multiple) {
               multivalues.push(option.value);
             } else {
-              $log.log('f');
-              $log.log(option);
-              $log.log('f');
-              modelCtrl.$setViewValue(String(option.value));
+              modelCtrl.$setViewValue(option.value);
             }
           }
         });
@@ -301,11 +297,6 @@
             restoreInputField(modelCtrl, field);
             break;
           case 'SELECT':
-          // -- MY FIX
-            modelCtrl.$formatters.push(function (val) {
-              return '' + val;
-            });
-          // -- MY FIX
             restoreSelectOptions(modelCtrl, field);
             break;
           case 'TEXTAREA':

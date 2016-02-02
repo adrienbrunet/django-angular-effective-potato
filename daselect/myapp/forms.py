@@ -9,3 +9,7 @@ class ChildForm(AngularModelFormMixin):
     class Meta:
         model = Child
         fields = ('parent', )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['parent'].widget.attrs['ng-options'] = "prent.pk as parent.name for parent in parents"

@@ -3,8 +3,8 @@ from django.views.generic import ListView, FormView
 from rest_framework import viewsets
 
 from .forms import ChildForm
-from .models import Child
-from .serializers import ChildSerializer
+from .models import Child, Parent
+from .serializers import ChildSerializer, ParentSerializer
 
 
 class ChildList(ListView):
@@ -23,3 +23,10 @@ class ChildViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return Child.objects.all()
+
+
+class ParentViewSet(viewsets.ModelViewSet):
+    serializer_class = ParentSerializer
+
+    def get_queryset(self):
+        return Parent.objects.all()
